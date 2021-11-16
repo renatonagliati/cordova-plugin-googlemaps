@@ -190,17 +190,20 @@ public class AsyncLoadImage extends AsyncTask<Void, Void, AsyncLoadImage.AsyncLo
       return result;
     }
 
-//    Log.d(TAG, String.format("---->iconURL = %s", iconUrl));
+    //Log.d(TAG, String.format("---->iconURL = %s", iconUrl));
     //--------------------------------
     // Load image from local path
     //--------------------------------
     if (!iconUrl.startsWith("data:image")) {
 
       if (iconUrl.startsWith("http://localhost") ||
-          iconUrl.startsWith("http://127.0.0.1")) {
+          iconUrl.startsWith("https://localhost") ||
+          iconUrl.startsWith("http://127.0.0.1") ||
+          iconUrl.startsWith("https://127.0.0.1")
+      ) {
 //        Log.d(TAG, String.format("---->(201)iconURL = %s", iconUrl));
         if (iconUrl.contains("://")) {
-          iconUrl = iconUrl.replaceAll("http://.+?/", "file:///android_asset/www/");
+          iconUrl = iconUrl.replaceAll("https?://.+?/", "file:///android_asset/www/");
         } else {
           // Avoid WebViewLocalServer (because can not make a connection for some reason)
           iconUrl = "file:///android_asset/www/".concat(iconUrl);
@@ -213,7 +216,7 @@ public class AsyncLoadImage extends AsyncTask<Void, Void, AsyncLoadImage.AsyncLo
           !iconUrl.startsWith("data:image") &&
           !iconUrl.startsWith("./") &&
           !iconUrl.startsWith("../")) {
-        iconUrl = "./" + iconUrl;
+        iconUrl = "file:///android_asset/www/" + iconUrl;
         //Log.d(TAG, "--> iconUrl = " + iconUrl);
       }
 
