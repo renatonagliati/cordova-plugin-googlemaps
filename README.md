@@ -1,5 +1,11 @@
 # Cordova GoogleMaps plugin for Android, iOS and Browser v2.7.1
 
+-----
+
+## Custom repo to work with cordova-android@10.1.2
+
+-----
+
 | Download | Build test (multiple_maps branch)|
 |----------|---------------------------|
 | [![](https://img.shields.io/npm/dm/cordova-plugin-googlemaps.svg)](https://npm-stat.com/charts.html?package=cordova-plugin-googlemaps) |[![](https://travis-ci.org/mapsplugin/cordova-plugin-googlemaps.svg?branch=multiple_maps)](https://travis-ci.org/mapsplugin/cordova-plugin-googlemaps/branches) |
